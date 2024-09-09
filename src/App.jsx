@@ -10,12 +10,14 @@ const App = () => {
     return (
         <Router>
             <Header />
+            <Suspense fallback={<div>Loading...</div>}>
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/shop" element={<ShopPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/contact" element={<ContactPage />} />
-            </Routes>
+                </Routes>
+            </Suspense>
         </Router>
     );
 };
