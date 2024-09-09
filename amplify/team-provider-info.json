@@ -14,6 +14,15 @@
     "categories": {
       "auth": {
         "featherlitecosmetics": {}
+      },
+      "api": {
+        "featherlitecosmetics": {}
+      },
+      "storage": {
+        "featherlitecosmetics11855082": {
+          "bucketName": "featherlites3",
+          "region": "us-east-1"
+        }
       }
     }
   }
