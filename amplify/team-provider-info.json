@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-featherlitecosmetics-dev-5de3f-authRole",
+      "UnauthRoleArn": "arn:aws:iam::177815783343:role/amplify-featherlitecosmetics-dev-5de3f-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::177815783343:role/amplify-featherlitecosmetics-dev-5de3f-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-featherlitecosmetics-dev-5de3f-deployment",
+      "UnauthRoleName": "amplify-featherlitecosmetics-dev-5de3f-unauthRole",
+      "StackName": "amplify-featherlitecosmetics-dev-5de3f",
+      "StackId": "arn:aws:cloudformation:us-east-1:177815783343:stack/amplify-featherlitecosmetics-dev-5de3f/bd085cb0-6ee6-11ef-a2de-1226d593b7e7",
+      "AmplifyAppId": "dzljag0vn64k6"
+    },
+    "categories": {
+      "auth": {
+        "featherlitecosmetics": {}
+      }
+    }
+  }
+}

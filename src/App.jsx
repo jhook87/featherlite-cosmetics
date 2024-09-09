@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import HomePage from './pages/HomePage';
-import ShopPage from './pages/ShopPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
+
+const HomePage = React.lazy(() => import('./pages/HomePage'));
+const ShopPage = React.lazy(() => import('./pages/ShopPage'));
+const AboutPage = React.lazy(() => import('./pages/AboutPage'));
+const ContactPage = React.lazy(() => import('./pages/ContactPage'));
 
 const App = () => {
     return (
         <Router>
             <Header />
             <Suspense fallback={<div>Loading...</div>}>
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/shop" element={<ShopPage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/contact" element={<ContactPage />} />
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/shop" element={<ShopPage />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
                 </Routes>
             </Suspense>
         </Router>
