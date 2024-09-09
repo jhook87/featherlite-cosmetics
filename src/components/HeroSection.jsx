@@ -1,14 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const HeroSection = () => {
+const HeroSection = ({ productId }) => {
+    const [product, setProduct] = useState(null);
+
+    // Simulated API call to fetch product details based on productId
+    useEffect(() => {
+        const fetchProduct = async () => {
+            // Simulated product data (replace this with actual API call)
+            const productData = {
+                id: productId,
+                name: "Clay Foundation",
+                description: "A natural, lightweight foundation for a flawless finish.",
+                imageUrl: "/assets/clay-foundation.png", // Path to the product image
+                ctaUrl: "/shop/clay-foundation", // Product page URL
+            };
+            setProduct(productData);
+        };
+        fetchProduct();
+    }, [productId]);
+
+    if (!product) return null;
+
     return (
-        <div className="hero-section">
-            <div className="slide">
-                <h1>Discover Pure Beauty in Every Shade</h1>
-                <p>Natural Mineral Makeup for Healthy, Glowing Skin</p>
-                <button>Shop Now</button>
+        <section className="hero-section container">
+            <div className="hero-content">
+                <h1>{product.name}</h1>
+                <p>{product.description}</p>
+                <a href={product.ctaUrl} className="cta-button">Shop Now</a>
             </div>
-        </div>
+            <div className="hero-image">
+                <img src={product.imageUrl} alt={product.name} />
+            </div>
+        </section>
     );
 };
 
