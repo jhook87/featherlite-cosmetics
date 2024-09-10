@@ -1,31 +1,35 @@
 import fs from 'fs';
-import csv from 'csv-parser'; // For parsing the CSV
+import csv from 'csv-parser';
 import { Amplify } from 'aws-amplify';
-import awsconfig from './aws-exports.js'; // Import the Amplify configuration
+import awsconfig from './aws-exports.js';
 import { DataStore } from '@aws-amplify/datastore';
-import { Product, schema } from './models/index.js'; // Updated import for Product model
-import AWS from 'aws-sdk'; // AWS SDK for accessing S3
+import { Product } from './models/index.js';
+import { S3Client, GetObjectCommand } from '@aws-sdk/client-s3';
+import { fromIni } from '@aws-sdk/credential-provider-ini';
 
-// Configure Amplify and AWS
+// Configure Amplify
 Amplify.configure(awsconfig);
 
-// Initialize S3 client
-const s3 = new AWS.S3();
+// Initialize S3 client using v3
+const s3Client = new S3Client({
+    region: awsconfig.aws_project_region,
+    credentials: fromIni({ profile: 'featherlite' })
+});
 
-// Function to download CSV from S3
+// Updated downloadCSVFromS3 function
 const downloadCSVFromS3 = async (bucket, key, localPath) => {
-    const params = {
+    const command = new GetObjectCommand({
         Bucket: bucket,
         Key: key,
-    };
+    });
 
-    const file = fs.createWriteStream(localPath);
+    const { Body } = await s3Client.send(command);
+    const writeStream = fs.createWriteStream(localPath);
+
     return new Promise((resolve, reject) => {
-        s3.getObject(params)
-            .createReadStream()
-            .pipe(file)
-            .on('finish', resolve)
-            .on('error', reject);
+        Body.pipe(writeStream);
+        writeStream.on('finish', resolve);
+        writeStream.on('error', reject);
     });
 };
 
@@ -56,45 +60,51 @@ const insertProducts = async (products) => {
 const loadProductsFromCSV = async (filePath) => {
     const products = [];
 
-    // Read and parse the CSV file
-    fs.createReadStream(filePath)
-        .pipe(csv())
-        .on('data', (row) => {
-            // Map CSV rows to product objects
-            products.push({
-                SKU: row.SKU,
-                ColorDescription: row.ColorDescription,
-                ProductDetails: row.ProductDetails,
-                ProductSize: parseFloat(row.ProductSize), // Convert to number
-                ProductCategory: row.ProductCategory,
-                RetailPrice: parseFloat(row.RetailPrice), // Convert to number
-                SubscriptionPrice: parseFloat(row.SubscriptionPrice), // Convert to number
-                ProductDescription: row.ProductDescription,
-            });
-        })
-        .on('end', async () => {
-            console.log(`Parsed ${products.length} products from CSV.`);
-            await insertProducts(products); // Insert the parsed products
-            console.log('All products inserted successfully.');
-        });
+    return new Promise((resolve, reject) => {
+        fs.createReadStream(filePath)
+            .pipe(csv())
+            .on('data', (row) => {
+                products.push({
+                    SKU: row.SKU,
+                    ColorDescription: row.ColorDescription,
+                    ProductDetails: row.ProductDetails,
+                    ProductSize: parseFloat(row.ProductSize),
+                    ProductCategory: row.ProductCategory,
+                    RetailPrice: parseFloat(row.RetailPrice),
+                    SubscriptionPrice: parseFloat(row.SubscriptionPrice),
+                    ProductDescription: row.ProductDescription,
+                });
+            })
+            .on('end', async () => {
+                console.log(`Parsed ${products.length} products from CSV.`);
+                try {
+                    await insertProducts(products);
+                    console.log('All products inserted successfully.');
+                    resolve();
+                } catch (error) {
+                    reject(error);
+                }
+            })
+            .on('error', reject);
+    });
 };
 
 // Main function to handle the process
 const main = async () => {
     const bucketName = 'featherlites3';
     const csvKey = 'ProductList - Sheet1 (1).csv';
-    const localFilePath = './ProductList.csv'; // Path to store the downloaded CSV
+    const localFilePath = './ProductList.csv';
 
-    // Download the CSV from S3
     try {
         console.log(`Downloading CSV from S3: s3://${bucketName}/${csvKey}`);
         await downloadCSVFromS3(bucketName, csvKey, localFilePath);
         console.log('CSV downloaded successfully.');
 
-        // Load and process the products from the downloaded CSV
         await loadProductsFromCSV(localFilePath);
     } catch (error) {
         console.error('Error downloading or processing the CSV:', error);
+        console.error('Error details:', error.message);
+        if (error.code) console.error('Error code:', error.code);
     }
 };
 
