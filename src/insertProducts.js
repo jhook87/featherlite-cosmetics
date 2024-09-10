@@ -1,9 +1,9 @@
 import fs from 'fs';
 import csv from 'csv-parser'; // For parsing the CSV
-import Amplify from 'aws-amplify';
+import { Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports.js'; // Import the Amplify configuration
 import { DataStore } from '@aws-amplify/datastore';
-import { Product } from './models/index.js'; // Updated import for Product model
+import { Product, schema } from './models/index.js'; // Updated import for Product model
 import AWS from 'aws-sdk'; // AWS SDK for accessing S3
 
 // Configure Amplify and AWS

@@ -11,9 +11,13 @@
     <PackageJsonScriptsPreview Condition="$(PackageJsonScriptsPreview) == ''">vite preview</PackageJsonScriptsPreview>
     <PackageJsonDependenciesAwsAmplifyDatastore Condition="$(PackageJsonDependenciesAwsAmplifyDatastore) == ''">^5.0.49</PackageJsonDependenciesAwsAmplifyDatastore>
     <PackageJsonDependenciesAwsAmplifyUiReact Condition="$(PackageJsonDependenciesAwsAmplifyUiReact) == ''">^6.3.0</PackageJsonDependenciesAwsAmplifyUiReact>
-    <PackageJsonDependenciesAwsAmplify Condition="$(PackageJsonDependenciesAwsAmplify) == ''">^6.3.2</PackageJsonDependenciesAwsAmplify>
+    <PackageJsonDependenciesAwsSdkClientApigatewayv2 Condition="$(PackageJsonDependenciesAwsSdkClientApigatewayv2) == ''">^3.645.0</PackageJsonDependenciesAwsSdkClientApigatewayv2>
+    <PackageJsonDependenciesAwsSdkClientLambda Condition="$(PackageJsonDependenciesAwsSdkClientLambda) == ''">^3.645.0</PackageJsonDependenciesAwsSdkClientLambda>
+    <PackageJsonDependenciesAwsSdkClientS3 Condition="$(PackageJsonDependenciesAwsSdkClientS3) == ''">^3.645.0</PackageJsonDependenciesAwsSdkClientS3>
+    <PackageJsonDependenciesAwsAmplify Condition="$(PackageJsonDependenciesAwsAmplify) == ''">^6.6.0</PackageJsonDependenciesAwsAmplify>
     <PackageJsonDependenciesAwsSdk Condition="$(PackageJsonDependenciesAwsSdk) == ''">^2.1691.0</PackageJsonDependenciesAwsSdk>
     <PackageJsonDependenciesCsvParser Condition="$(PackageJsonDependenciesCsvParser) == ''">^3.0.0</PackageJsonDependenciesCsvParser>
+    <PackageJsonDependenciesFs Condition="$(PackageJsonDependenciesFs) == ''">^0.0.1-security</PackageJsonDependenciesFs>
     <PackageJsonDependenciesReact Condition="$(PackageJsonDependenciesReact) == ''">^18.3.1</PackageJsonDependenciesReact>
     <PackageJsonDependenciesReactDom Condition="$(PackageJsonDependenciesReactDom) == ''">^18.3.1</PackageJsonDependenciesReactDom>
     <PackageJsonDependenciesReactRouterDom Condition="$(PackageJsonDependenciesReactRouterDom) == ''">^6.26.2</PackageJsonDependenciesReactRouterDom>
