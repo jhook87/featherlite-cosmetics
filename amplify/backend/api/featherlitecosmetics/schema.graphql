@@ -1,0 +1,12 @@
+type Product @model @auth(rules: [{allow: public}, {allow: private, operations: [create, read, update]}, {allow: owner}]) {
+  id: ID!
+  SKU: String!
+  ColorDescription: String
+  ProductDetails: String
+  ProdutSize: Float
+  ProductCategory: String
+  RetailPrice: Float!
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
+ 
