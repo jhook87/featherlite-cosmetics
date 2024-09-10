@@ -1,9 +1,10 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import Amplify from 'aws-amplify';
-import { Amplify } from '../node_modules/aws-amplify/lib-esm/index';
+import { Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports';
+
+Amplify.configure(awsconfig);
 
 const HomePage = React.lazy(() => import('./pages/HomePage'));
 const ShopPage = React.lazy(() => import('./pages/ShopPage'));
