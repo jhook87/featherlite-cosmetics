@@ -14,12 +14,12 @@ body::before {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.2;
+    opacity: 0.05; /* Subtle background texture */
 }
 
 body {
     position: relative;
-    background-color: #f5f0e1;
+    background-color: #ffffff;
     font-family: 'Josefin Sans', sans-serif;
     margin: 0;
     padding: 0;
@@ -33,50 +33,54 @@ body {
 }
 
 section {
-    padding: 60px 20px;
-    background-color: #f5f0e1;
+    padding: 80px 20px;
+    background-color: #ffffff;
     color: #333;
 }
 
-h1 {
-    font-size: 42px;
+h1, h2, h3 {
+    font-family: 'Crimson Pro', serif; /* Heading font */
     color: #3DA212;
-    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
     text-align: center;
     font-weight: bold;
 }
 
 h2 {
-    font-size: 28px;
+    font-size: 32px;
     margin-top: 30px;
-    color: #3DA212;
     font-weight: 600;
 }
 
 p {
     font-size: 18px;
-    line-height: 1.8;
-    color: #3DA212;
+    line-height: 1.6;
+    color: #666;
     margin-bottom: 20px;
 }
 
 button,
 .cta-button {
-    padding: 12px 25px;
+    padding: 12px 30px;
     background-color: #3DA212;
     color: #fff;
     font-size: 16px;
     border: none;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-    button:hover,
-    .cta-button:hover {
-        background-color: #2e8b10;
-    }
+button:hover,
+.cta-button:hover {
+    background-color: #2e8b10;
+    transform: translateY(-2px);
+}
 
 /* =========================
    Header Styles
@@ -84,7 +88,7 @@ button,
 
 .site-header {
     background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -94,7 +98,7 @@ button,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -104,7 +108,7 @@ button,
 }
 
 .logo {
-    max-height: 40px;
+    max-height: 50px;
     width: auto;
 }
 
@@ -116,40 +120,40 @@ button,
 
 .nav-links {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-    .nav-links a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 600;
-        font-size: 14px;
-        transition: color 0.3s;
-    }
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s;
+}
 
-        .nav-links a:hover {
-            color: #3DA212;
-        }
+.nav-links a:hover {
+    color: #3DA212;
+}
 
 .search-bar-container {
     flex: 0 0 auto;
 }
 
 .search-bar {
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 200px;
+    border-radius: 20px;
+    width: 250px;
     font-size: 14px;
 }
 
-    .search-bar:focus {
-        border-color: #3DA212;
-        outline: none;
-    }
+.search-bar:focus {
+    border-color: #3DA212;
+    outline: none;
+}
 
 /* =========================
    Hero Section Styles
@@ -159,28 +163,27 @@ button,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #f0e8d5;
-    padding: 80px 20px;
+    background-color: #f8f9fa;
+    padding: 100px 40px;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 60px;
 }
 
 .hero-content {
     flex: 1;
 }
 
-    .hero-content h1 {
-        font-size: 48px;
-        color: #3DA212;
-        font-weight: bold;
-    }
+.hero-content h1 {
+    font-size: 54px;
+    font-weight: bold;
+}
 
-    .hero-content p {
-        font-size: 18px;
-        margin: 20px 0;
-        color: #555;
-    }
+.hero-content p {
+    font-size: 20px;
+    margin: 20px 0;
+    color: #555;
+}
 
 .cta-button {
     display: inline-block;
@@ -192,10 +195,10 @@ button,
     text-align: right;
 }
 
-    .hero-image img {
-        max-width: 100%;
-        border-radius: 12px;
-    }
+.hero-image img {
+    max-width: 100%;
+    border-radius: 12px;
+}
 
 /* =========================
    Product Grid Styles
@@ -204,59 +207,58 @@ button,
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 30px;
     margin-top: 40px;
 }
 
 .product-card {
     background-color: #fff;
-    border: none;
+    border: 1px solid #D6D1D1; /* Light gray border */
     border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+    padding: 25px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
 }
 
-    .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    }
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
 
-    .product-card img {
-        max-width: 100%;
-        border-radius: 8px;
-        margin-bottom: 15px;
-    }
+.product-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
 
-    .product-card h3 {
-        font-size: 22px;
-        margin-bottom: 10px;
-        font-weight: 600;
-        color: #3DA212;
-    }
+.product-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
 
-    .product-card p {
-        font-size: 18px;
-        color: #3DA212;
-        font-weight: bold;
-        margin-bottom: 15px;
-    }
+.product-card p {
+    font-size: 18px;
+    color: #3DA212;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
 
-    .product-card button {
-        background-color: #3DA212;
-        color: #fff;
-        font-size: 16px;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
+.product-card button {
+    background-color: #3DA212;
+    color: #fff;
+    font-size: 16px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        .product-card button:hover {
-            background-color: #2e8b10;
-        }
+.product-card button:hover {
+    background-color: #2e8b10;
+}
 
 /* =========================
    About Page Styles
@@ -274,32 +276,37 @@ button,
 
 .contact-form {
     max-width: 600px;
-    margin: 30px auto;
+    margin: 50px auto;
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-    .contact-form label {
-        display: block;
-        font-size: 16px;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 5px;
-    }
+.contact-form label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
 
-    .contact-form input,
-    .contact-form textarea,
-    .search-bar {
-        background-color: #fff9e6;
-        border: 2px solid #ddd;
-        padding: 15px;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        font-size: 16px;
-        width: 100%;
-        box-sizing: border-box;
-        transition: border;
-        }
+.contact-form input,
+.contact-form textarea,
+.search-bar {
+    background-color: #fdf9f3;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
 
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #3DA212;
+    outline: none;
+}

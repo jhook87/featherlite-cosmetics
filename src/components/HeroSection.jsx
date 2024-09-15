@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import { Amplify, graphqlOperation } from 'aws-amplify';
+import { getProduct } from '../graphql/queries';
+import awsconfig from '../aws-exports';
+import { API } from '@aws-amplify/api';
+
 
 const HeroSection = ({ productId }) => {
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
         const fetchProduct = async () => {
-            // Example of a real API call, replace with actual API in production
-            const productData = {
-                id: productId,
-                name: "Clay Foundation",
-                description: "A natural, lightweight foundation for a flawless finish.",
-                imageUrl: "/assets/clay-foundation.png",
-                ctaUrl: "/shop/clay-foundation",
-            };
-            setProduct(productData);
+            try {
+                const response = await API.graphql(graphqlOperation(getProduct, { id: productId }));
+                const fetchedProduct = response.data.getProduct;
+                setProduct({
+                    ...fetchedProduct,
+                    ctaUrl: `/shop/${fetchedProduct.id}`
+                });
+            } catch (error) {
+                console.error('Error fetching product:', error);
+            }
         };
         fetchProduct();
     }, [productId]);
