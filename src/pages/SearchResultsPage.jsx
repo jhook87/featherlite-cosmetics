@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ProductCard from '../components/ProductCard';
 
 const SearchResultsPage = () => {
     const [filters, setFilters] = useState({
@@ -84,12 +85,11 @@ const SearchResultsPage = () => {
                 <div className="product-grid">
                     {filteredResults.length > 0 ? (
                         filteredResults.map(product => (
-                            <div key={product.id} className="product-card">
-                                <img src={product.imageUrl} alt={product.name} />
-                                <h3>{product.name}</h3>
-                                <p>${product.price}</p>
-                                <Link to={`/product/${product.id}`} className="view-product-btn">View Product</Link>
-                            </div>
+                            <ProductCard key={product.id} product={{
+                                name: product.name,
+                                price: `$${product.price}`,
+                                imageUrl: product.imageUrl
+                            }} />
                         ))
                     ) : (
                         <p>No products found matching your criteria.</p>
