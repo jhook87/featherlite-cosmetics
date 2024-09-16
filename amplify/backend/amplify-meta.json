@@ -50,7 +50,7 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync",
-      "lastPushTimeStamp": "2024-09-16T12:41:15.334Z",
+      "lastPushTimeStamp": "2024-09-16T12:56:19.015Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-featherlitecosmetics-dev-5de3f-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apifeatherlitecosmetics"
@@ -96,7 +96,7 @@
         "IdentityPoolName": "testAuthIdentityPool__dev",
         "UserPoolName": "featherlitecosmetics"
       },
-      "lastPushTimeStamp": "2024-09-16T12:41:15.352Z",
+      "lastPushTimeStamp": "2024-09-16T12:56:19.018Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-featherlitecosmetics-dev-5de3f-deployment/amplify-cfn-templates/auth/featherlitecosmetics-cloudformation-template.json",
         "logicalId": "authfeatherlitecosmetics"
@@ -118,7 +118,7 @@
           ]
         }
       ],
-      "lastPushTimeStamp": "2024-09-16T12:41:16.604Z",
+      "lastPushTimeStamp": "2024-09-16T12:56:20.096Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-featherlitecosmetics-dev-5de3f-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
         "logicalId": "storagefeatherlite"
@@ -147,7 +147,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-featherlitecosmetics-dev-5de3f-deployment/amplify-cfn-templates/function/S3Trigger01713da7-cloudformation-template.json",
         "logicalId": "functionS3Trigger01713da7"
       },
-      "lastPushTimeStamp": "2024-09-16T12:41:15.392Z",
+      "lastPushTimeStamp": "2024-09-16T12:56:19.047Z",
       "output": {
         "LambdaExecutionRoleArn": "arn:aws:iam::177815783343:role/S3Trigger01713da7LambdaRole01713da7-dev",
         "Region": "us-east-1",

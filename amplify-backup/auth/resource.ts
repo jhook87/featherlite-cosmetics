@@ -1,4 +1,8 @@
-import { defineAuth } from '@aws-amplify/backend';
+import { Amplify } from 'aws-amplify';
+import awsconfig from '../aws-exports';
+
+
+Amplify.configure(awsconfig);
 
 /**
  * Define and configure your auth resource
