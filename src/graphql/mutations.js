@@ -8,15 +8,15 @@ export const createProduct = /* GraphQL */ `
   ) {
     createProduct(input: $input, condition: $condition) {
       id
-      name
-      description
-      price
-      category
-      imageUrl
-      stock
-      sku
+      SKU
+      ColorDescription
+      ProductDetails
+      ProdutSize
+      ProductCategory
+      RetailPrice
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -28,15 +28,15 @@ export const updateProduct = /* GraphQL */ `
   ) {
     updateProduct(input: $input, condition: $condition) {
       id
-      name
-      description
-      price
-      category
-      imageUrl
-      stock
-      sku
+      SKU
+      ColorDescription
+      ProductDetails
+      ProdutSize
+      ProductCategory
+      RetailPrice
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -48,15 +48,15 @@ export const deleteProduct = /* GraphQL */ `
   ) {
     deleteProduct(input: $input, condition: $condition) {
       id
-      name
-      description
-      price
-      category
-      imageUrl
-      stock
-      sku
+      SKU
+      ColorDescription
+      ProductDetails
+      ProdutSize
+      ProductCategory
+      RetailPrice
       createdAt
       updatedAt
+      owner
       __typename
     }
   }

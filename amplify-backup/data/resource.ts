@@ -10,6 +10,7 @@ export class AmplifyResourcesStack extends cdk.Stack {
 
         // Create an S3 bucket for file storage
         const myBucket = new s3.Bucket(this, 'FeatherliteBucket', {
+            bucketName: 'featherlite3',
             versioned: true,
             removalPolicy: cdk.RemovalPolicy.DESTROY,
         });

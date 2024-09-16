@@ -5,15 +5,15 @@ export const getProduct = /* GraphQL */ `
   query GetProduct($id: ID!) {
     getProduct(id: $id) {
       id
-      name
-      description
-      price
-      category
-      imageUrl
-      stock
-      sku
+      SKU
+      ColorDescription
+      ProductDetails
+      ProdutSize
+      ProductCategory
+      RetailPrice
       createdAt
       updatedAt
+      owner
       __typename
     }
   }
@@ -27,15 +27,15 @@ export const listProducts = /* GraphQL */ `
     listProducts(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        name
-        description
-        price
-        category
-        imageUrl
-        stock
-        sku
+        SKU
+        ColorDescription
+        ProductDetails
+        ProdutSize
+        ProductCategory
+        RetailPrice
         createdAt
         updatedAt
+        owner
         __typename
       }
       nextToken
