@@ -17,16 +17,17 @@
     <PackageJsonDependenciesAwsSdkClientLambda Condition="$(PackageJsonDependenciesAwsSdkClientLambda) == ''">^3.651.1</PackageJsonDependenciesAwsSdkClientLambda>
     <PackageJsonDependenciesAwsSdkClientS3 Condition="$(PackageJsonDependenciesAwsSdkClientS3) == ''">^3.651.1</PackageJsonDependenciesAwsSdkClientS3>
     <PackageJsonDependenciesAwsSdkCredentialProviderSso Condition="$(PackageJsonDependenciesAwsSdkCredentialProviderSso) == ''">^3.651.1</PackageJsonDependenciesAwsSdkCredentialProviderSso>
+    <PackageJsonDependenciesAwsSdkTokenProviders Condition="$(PackageJsonDependenciesAwsSdkTokenProviders) == ''">^3.649.0</PackageJsonDependenciesAwsSdkTokenProviders>
     <PackageJsonDependenciesSmithySharedIniFileLoader Condition="$(PackageJsonDependenciesSmithySharedIniFileLoader) == ''">^3.1.7</PackageJsonDependenciesSmithySharedIniFileLoader>
     <PackageJsonDependenciesAmplify Condition="$(PackageJsonDependenciesAmplify) == ''">^0.0.11</PackageJsonDependenciesAmplify>
     <PackageJsonDependenciesAwsAmplify Condition="$(PackageJsonDependenciesAwsAmplify) == ''">^6.6.0</PackageJsonDependenciesAwsAmplify>
-    <PackageJsonDependenciesAwsSdk Condition="$(PackageJsonDependenciesAwsSdk) == ''">^2.1691.0</PackageJsonDependenciesAwsSdk>
     <PackageJsonDependenciesCsvParser Condition="$(PackageJsonDependenciesCsvParser) == ''">^3.0.0</PackageJsonDependenciesCsvParser>
     <PackageJsonDependenciesInstall Condition="$(PackageJsonDependenciesInstall) == ''">^0.13.0</PackageJsonDependenciesInstall>
     <PackageJsonDependenciesNpm Condition="$(PackageJsonDependenciesNpm) == ''">^10.8.3</PackageJsonDependenciesNpm>
     <PackageJsonDependenciesReact Condition="$(PackageJsonDependenciesReact) == ''">^18.3.1</PackageJsonDependenciesReact>
     <PackageJsonDependenciesReactDom Condition="$(PackageJsonDependenciesReactDom) == ''">^18.3.1</PackageJsonDependenciesReactDom>
     <PackageJsonDependenciesReactRouterDom Condition="$(PackageJsonDependenciesReactRouterDom) == ''">^6.26.2</PackageJsonDependenciesReactRouterDom>
+    <PackageJsonDependenciesVitePluginNodePolyfills Condition="$(PackageJsonDependenciesVitePluginNodePolyfills) == ''">^0.22.0</PackageJsonDependenciesVitePluginNodePolyfills>
     <PackageJsonDevdependenciesAwsAmplifyCli Condition="$(PackageJsonDevdependenciesAwsAmplifyCli) == ''">^12.7.0</PackageJsonDevdependenciesAwsAmplifyCli>
     <PackageJsonDevdependenciesEslintJs Condition="$(PackageJsonDevdependenciesEslintJs) == ''">^9.9.0</PackageJsonDevdependenciesEslintJs>
     <PackageJsonDevdependenciesTypesNode Condition="$(PackageJsonDevdependenciesTypesNode) == ''">^22.5.5</PackageJsonDevdependenciesTypesNode>
