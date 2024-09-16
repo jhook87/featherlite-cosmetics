@@ -1,19 +1,33 @@
-import React from 'react';
-import ProductCard from './ProductCard'; // Reusable ProductCard component
+import React, { useEffect, useState } from 'react';
+import { fetchProductsFromS3 } from '../utils/productUtils';
+import ProductCard from './ProductCard';
 
 const ProductGrid = () => {
-    const products = [
-        { name: 'Clay Foundation', price: '$50', imageUrl: '/assets/clay-foundation.png', id: '1' },
-        { name: 'Mineral Eyeshadow Palette', price: '$35', imageUrl: '/assets/eyeshadow-palette.png', id: '2' },
-        { name: 'Lip & Cheek Tint', price: '$25', imageUrl: '/assets/lip-cheek-tint.png', id: '3' },
-    ];
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        async function loadProducts() {
+            try {
+                const productsData = await fetchProductsFromS3();
+                setProducts(productsData);
+            } catch (error) {
+                console.error('Failed to load products:', error);
+            }
+        }
+        loadProducts();
+    }, []);
 
     return (
         <section className="product-grid">
-            <h2>Best Sellers</h2>
+            <h2>Our Products</h2>
             <div className="grid">
                 {products.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                    <ProductCard key={product.SKU} product={{
+                        name: product.ColorDescription,
+                        price: `$${product.RetailPrice}`,
+                        imageUrl: `/assets/${product.SKU}.png`,
+                        id: product.SKU
+                    }} />
                 ))}
             </div>
         </section>

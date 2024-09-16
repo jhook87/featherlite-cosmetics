@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Amplify, graphqlOperation } from 'aws-amplify';
+import { API, graphqlOperation } from 'aws-amplify';
 import { getProduct } from '../graphql/queries';
 import awsconfig from '../aws-exports';
-import { API } from '@aws-amplify/api';
 
 
 const HeroSection = ({ productId }) => {

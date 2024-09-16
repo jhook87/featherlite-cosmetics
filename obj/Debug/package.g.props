@@ -9,6 +9,7 @@
     <PackageJsonScriptsBuild Condition="$(PackageJsonScriptsBuild) == ''">vite build</PackageJsonScriptsBuild>
     <PackageJsonScriptsLint Condition="$(PackageJsonScriptsLint) == ''">eslint .</PackageJsonScriptsLint>
     <PackageJsonScriptsPreview Condition="$(PackageJsonScriptsPreview) == ''">vite preview</PackageJsonScriptsPreview>
+    <PackageJsonDependenciesAwsAmplifyBackend Condition="$(PackageJsonDependenciesAwsAmplifyBackend) == ''">^1.2.1</PackageJsonDependenciesAwsAmplifyBackend>
     <PackageJsonDependenciesAwsAmplifyDatastore Condition="$(PackageJsonDependenciesAwsAmplifyDatastore) == ''">^5.0.49</PackageJsonDependenciesAwsAmplifyDatastore>
     <PackageJsonDependenciesAwsAmplifyUiReact Condition="$(PackageJsonDependenciesAwsAmplifyUiReact) == ''">^6.3.0</PackageJsonDependenciesAwsAmplifyUiReact>
     <PackageJsonDependenciesAwsSdkClientApigatewayv2 Condition="$(PackageJsonDependenciesAwsSdkClientApigatewayv2) == ''">^3.645.0</PackageJsonDependenciesAwsSdkClientApigatewayv2>

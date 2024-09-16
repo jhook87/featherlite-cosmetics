@@ -1,23 +1,34 @@
-import React from 'react';
+// src/pages/ShopPage.jsx
+import React, { useEffect, useState } from 'react';
+import { fetchProductsFromS3 } from '../utils/productUtils';
+import ProductCard from '../components/ProductCard';
 
 const ShopPage = () => {
-    const products = [
-        { id: 1, name: 'Clay Foundation', price: '$50', imageUrl: '/assets/clay-foundation.png' },
-        { id: 2, name: 'Mineral Eyeshadow Palette', price: '$35', imageUrl: '/assets/eyeshadow-palette.png' },
-        { id: 3, name: 'Lip & Cheek Tint', price: '$25', imageUrl: '/assets/lip-cheek-tint.png' },
-    ];
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        async function loadProducts() {
+            try {
+                const productsData = await fetchProductsFromS3();
+                setProducts(productsData);
+            } catch (error) {
+                console.error('Failed to load products:', error);
+            }
+        }
+        loadProducts();
+    }, []);
 
     return (
         <section className="shop-page container">
             <h1>Shop Our Products</h1>
             <div className="product-grid">
                 {products.map(product => (
-                    <div key={product.id} className="product-card">
-                        <img src={product.imageUrl} alt={product.name} />
-                        <h3>{product.name}</h3>
-                        <p>{product.price}</p>
-                        <button>View Product</button>
-                    </div>
+                    <ProductCard key={product.SKU} product={{
+                        name: product.ColorDescription,
+                        price: `$${product.RetailPrice}`,
+                        imageUrl: `/assets/${product.SKU}.png`,
+                        id: product.SKU
+                    }} />
                 ))}
             </div>
         </section>

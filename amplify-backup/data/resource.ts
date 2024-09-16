@@ -14,9 +14,9 @@ export class AmplifyResourcesStack extends cdk.Stack {
             removalPolicy: cdk.RemovalPolicy.DESTROY,
         });
 
-        // Create a Lambda function
+        // Create a Lambda function with updated runtime
         const myLambda = new lambda.Function(this, 'FeatherliteFunction', {
-            runtime: lambda.Runtime.NODEJS_14_X,
+            runtime: lambda.Runtime.NODEJS_18_X, // Updated to Node.js 18.x
             code: lambda.Code.fromAsset('lambda'), // Assuming the Lambda code is in a directory named 'lambda'
             handler: 'index.handler',
         });
