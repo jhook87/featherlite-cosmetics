@@ -67,30 +67,46 @@
       "service": "Cognito"
     }
   },
+  "function": {
+    "S3Trigger01713da7": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "parameters": {
-    "AMPLIFY_storage_featherlitecosmetics11855082_bucketName": {
+    "AMPLIFY_function_S3Trigger01713da7_deploymentBucketName": {
       "usedBy": [
         {
-          "category": "storage",
-          "resourceName": "featherlitecosmetics11855082"
+          "category": "function",
+          "resourceName": "S3Trigger01713da7"
         }
       ]
     },
-    "AMPLIFY_storage_featherlitecosmetics11855082_region": {
+    "AMPLIFY_function_S3Trigger01713da7_s3Key": {
       "usedBy": [
         {
-          "category": "storage",
-          "resourceName": "featherlitecosmetics11855082"
+          "category": "function",
+          "resourceName": "S3Trigger01713da7"
         }
       ]
     }
   },
   "storage": {
-    "featherlitecosmetics11855082": {
-      "dependsOn": [],
+    "featherlite": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "LambdaExecutionRole"
+          ],
+          "category": "function",
+          "resourceName": "S3Trigger01713da7"
+        }
+      ],
       "providerPlugin": "awscloudformation",
-      "service": "S3",
-      "serviceType": "imported"
+      "service": "S3"
     }
   }
 }

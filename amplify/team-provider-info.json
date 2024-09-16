@@ -18,11 +18,14 @@
       "api": {
         "featherlitecosmetics": {}
       },
-      "storage": {
-        "featherlitecosmetics11855082": {
-          "bucketName": "featherlites3",
-          "region": "us-east-1"
+      "function": {
+        "S3Trigger01713da7": {
+          "deploymentBucketName": "amplify-featherlitecosmetics-dev-5de3f-deployment",
+          "s3Key": "amplify-builds/S3Trigger01713da7-5576334b5155476e394b-build.zip"
         }
+      },
+      "storage": {
+        "featherlite": {}
       }
     }
   }
