@@ -1,0 +1,19 @@
+{
+    "AppSyncApiName": "featherlitecosmetics",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authfeatherlitecosmetics",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "S3DeploymentBucket": "amplify-featherlitecosmetics-dev-5de3f-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/9777ba556e53749c8d4da5083dad42143cec862a"
+}

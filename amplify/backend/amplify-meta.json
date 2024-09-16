@@ -1,0 +1,161 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-featherlitecosmetics-dev-5de3f-authRole",
+      "UnauthRoleArn": "arn:aws:iam::177815783343:role/amplify-featherlitecosmetics-dev-5de3f-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::177815783343:role/amplify-featherlitecosmetics-dev-5de3f-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-featherlitecosmetics-dev-5de3f-deployment",
+      "UnauthRoleName": "amplify-featherlitecosmetics-dev-5de3f-unauthRole",
+      "StackName": "amplify-featherlitecosmetics-dev-5de3f",
+      "StackId": "arn:aws:cloudformation:us-east-1:177815783343:stack/amplify-featherlitecosmetics-dev-5de3f/bd085cb0-6ee6-11ef-a2de-1226d593b7e7",
+      "AmplifyAppId": "dzljag0vn64k6"
+    }
+  },
+  "api": {
+    "featherlitecosmetics": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "featherlitecosmetics"
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "API_KEY",
+              "apiKeyConfig": {
+                "apiKeyExpirationDays": 30,
+                "description": "api key description"
+              }
+            },
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authfeatherlitecosmetics"
+              }
+            }
+          ],
+          "defaultAuthentication": {
+            "authenticationType": "AWS_IAM"
+          }
+        },
+        "GraphQLAPIIdOutput": "3opaicxqbvatxotsngdsa3a2q4",
+        "GraphQLAPIEndpointOutput": "https://pilv25wwxfdwhfcrshgusmerp4.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-t7yrmh7g75fxpivwahg2lfpbvu"
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync",
+      "lastPushTimeStamp": "2024-09-16T12:41:15.334Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-featherlitecosmetics-dev-5de3f-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apifeatherlitecosmetics"
+      },
+      "lastPushDirHash": "mQTWbJlDZolctXaSTwF++gE6Yoc="
+    }
+  },
+  "auth": {
+    "featherlitecosmetics": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS",
+            "REQUIRES_UPPERCASE"
+          ]
+        },
+        "signupAttributes": [],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "output": {
+        "UserPoolId": "us-east-1_FlYl2UqtI",
+        "AppClientIDWeb": "56afakf93g2ej2ifv2739vb42",
+        "AppClientID": "64p76h6iilsvuc4a20rsfdesib",
+        "IdentityPoolId": "us-east-1:c5f6129a-8597-4e0a-bec4-10cb0368e264",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:177815783343:userpool/us-east-1_FlYl2UqtI",
+        "IdentityPoolName": "testAuthIdentityPool__dev",
+        "UserPoolName": "featherlitecosmetics"
+      },
+      "lastPushTimeStamp": "2024-09-16T12:41:15.352Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-featherlitecosmetics-dev-5de3f-deployment/amplify-cfn-templates/auth/featherlitecosmetics-cloudformation-template.json",
+        "logicalId": "authfeatherlitecosmetics"
+      }
+    }
+  },
+  "storage": {
+    "featherlite": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "S3Trigger01713da7",
+          "attributes": [
+            "Name",
+            "Arn",
+            "LambdaExecutionRole"
+          ]
+        }
+      ],
+      "lastPushTimeStamp": "2024-09-16T12:41:16.604Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-featherlitecosmetics-dev-5de3f-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storagefeatherlite"
+      },
+      "output": {
+        "BucketName": "featherlite35de3f-dev",
+        "Region": "us-east-1"
+      },
+      "lastPushDirHash": "H8rQyyK1yqgjkCHA/pcpabAVqEg="
+    }
+  },
+  "function": {
+    "S3Trigger01713da7": {
+      "service": "Lambda",
+      "providerPlugin": "awscloudformation",
+      "build": true,
+      "lastBuildTimeStamp": "2024-09-16T12:04:46.299Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2024-09-16T12:04:46.334Z",
+      "distZipFilename": "S3Trigger01713da7-5576334b5155476e394b-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-featherlitecosmetics-dev-5de3f-deployment",
+        "s3Key": "amplify-builds/S3Trigger01713da7-5576334b5155476e394b-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-featherlitecosmetics-dev-5de3f-deployment/amplify-cfn-templates/function/S3Trigger01713da7-cloudformation-template.json",
+        "logicalId": "functionS3Trigger01713da7"
+      },
+      "lastPushTimeStamp": "2024-09-16T12:41:15.392Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::177815783343:role/S3Trigger01713da7LambdaRole01713da7-dev",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:177815783343:function:S3Trigger01713da7-dev",
+        "Name": "S3Trigger01713da7-dev",
+        "LambdaExecutionRole": "S3Trigger01713da7LambdaRole01713da7-dev"
+      },
+      "lastPushDirHash": "XZu+PDFfU7H4Y4x1ml+nXPoxScQ="
+    }
+  }
+}
