@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
+import ProductDetailPage from './pages/ProductDetailPage';
 import { Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports';
 
@@ -45,6 +46,7 @@ const App = () => {
                         <Route path="/shop" element={<ShopPage />} />
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/contact" element={<ContactPage />} />
+                        <Route path="/product/:id" element={<ProductDetailPage />} />
                     </Routes>
                 </Suspense>
             </ErrorBoundary>

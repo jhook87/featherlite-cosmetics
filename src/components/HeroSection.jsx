@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import { getProduct } from '../graphql/queries';
-import awsconfig from '../aws-exports';
-
 
 const HeroSection = ({ productId }) => {
     const [product, setProduct] = useState(null);
@@ -12,9 +10,11 @@ const HeroSection = ({ productId }) => {
             try {
                 const response = await API.graphql(graphqlOperation(getProduct, { id: productId }));
                 const fetchedProduct = response.data.getProduct;
+                const imageUrl = `https://featherlites3.s3.amazonaws.com/${encodeURIComponent(fetchedProduct.ProductCategory)}/${encodeURIComponent(fetchedProduct.ColorDescription)}.jpg`;
                 setProduct({
                     ...fetchedProduct,
-                    ctaUrl: `/shop/${fetchedProduct.id}`
+                    ctaUrl: `/shop/${fetchedProduct.id}`,
+                    imageUrl: imageUrl
                 });
             } catch (error) {
                 console.error('Error fetching product:', error);
@@ -28,12 +28,12 @@ const HeroSection = ({ productId }) => {
     return (
         <section className="hero-section container">
             <div className="hero-content">
-                <h1>{product.name}</h1>
-                <p>{product.description}</p>
-                <a href={product.ctaUrl} className="cta-button" aria-label={`Shop for ${product.name}`}>Shop Now</a>
+                <h1>{product.ColorDescription}</h1>
+                <p>{product.ProductDetails}</p>
+                <a href={product.ctaUrl} className="cta-button" aria-label={`Shop for ${product.ColorDescription}`}>Shop Now</a>
             </div>
             <div className="hero-image">
-                <img src={product.imageUrl} alt={`${product.name} - FeatherLite`} />
+                <img src={product.imageUrl} alt={`${product.ColorDescription} - FeatherLite`} />
             </div>
         </section>
     );
