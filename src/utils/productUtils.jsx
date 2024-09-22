@@ -1,10 +1,14 @@
 import { S3Client, GetObjectCommand } from '@aws-sdk/client-s3';
-import { fromIni } from '@aws-sdk/credential-provider-ini';
+import { fromCognitoIdentityPool } from '@aws-sdk/credential-provider-cognito-identity';
+import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
 import awsconfig from '../aws-exports.js';
 
 const s3Client = new S3Client({
     region: awsconfig.aws_project_region,
-    credentials: fromIni({ profile: 'featherlite' })
+    credentials: fromCognitoIdentityPool({
+        client: new CognitoIdentityClient({ region: awsconfig.aws_project_region }),
+        identityPoolId: awsconfig.aws_cognito_identity_pool_id
+    })
 });
 
 export async function fetchProductsFromS3() {

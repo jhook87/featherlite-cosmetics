@@ -28,7 +28,6 @@
     <PackageJsonDependenciesReact Condition="$(PackageJsonDependenciesReact) == ''">^18.3.1</PackageJsonDependenciesReact>
     <PackageJsonDependenciesReactDom Condition="$(PackageJsonDependenciesReactDom) == ''">^18.3.1</PackageJsonDependenciesReactDom>
     <PackageJsonDependenciesReactRouterDom Condition="$(PackageJsonDependenciesReactRouterDom) == ''">^6.26.2</PackageJsonDependenciesReactRouterDom>
-    <PackageJsonDependenciesVitePluginNodePolyfills Condition="$(PackageJsonDependenciesVitePluginNodePolyfills) == ''">^0.22.0</PackageJsonDependenciesVitePluginNodePolyfills>
     <PackageJsonDevdependenciesAwsAmplifyCli Condition="$(PackageJsonDevdependenciesAwsAmplifyCli) == ''">^12.7.0</PackageJsonDevdependenciesAwsAmplifyCli>
     <PackageJsonDevdependenciesEslintJs Condition="$(PackageJsonDevdependenciesEslintJs) == ''">^9.9.0</PackageJsonDevdependenciesEslintJs>
     <PackageJsonDevdependenciesTypesNode Condition="$(PackageJsonDevdependenciesTypesNode) == ''">^22.5.5</PackageJsonDevdependenciesTypesNode>
@@ -41,5 +40,6 @@
     <PackageJsonDevdependenciesEslintPluginReactRefresh Condition="$(PackageJsonDevdependenciesEslintPluginReactRefresh) == ''">^0.4.9</PackageJsonDevdependenciesEslintPluginReactRefresh>
     <PackageJsonDevdependenciesGlobals Condition="$(PackageJsonDevdependenciesGlobals) == ''">^15.9.0</PackageJsonDevdependenciesGlobals>
     <PackageJsonDevdependenciesVite Condition="$(PackageJsonDevdependenciesVite) == ''">^5.4.1</PackageJsonDevdependenciesVite>
+    <PackageJsonDevdependenciesVitePluginNodePolyfills Condition="$(PackageJsonDevdependenciesVitePluginNodePolyfills) == ''">^0.22.0</PackageJsonDevdependenciesVitePluginNodePolyfills>
   </PropertyGroup>
 </Project>
