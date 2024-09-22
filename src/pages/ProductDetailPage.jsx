@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { API, graphqlOperation } from 'aws-amplify';
-import { getProduct } from '../graphql/queries';
+import { fetchProductsFromS3 } from '../utils/productUtils';
 import HeroSection from '../components/HeroSection';
 
 const ProductDetailPage = () => {
@@ -14,9 +13,14 @@ const ProductDetailPage = () => {
         const fetchProduct = async () => {
             try {
                 setLoading(true);
-                const response = await API.graphql(graphqlOperation(getProduct, { id }));
-                const fetchedProduct = response.data.getProduct;
-                setProduct(fetchedProduct);
+                const allProducts = await fetchProductsFromS3();
+                const fetchedProduct = allProducts.find(p => p.SKU === id);
+                if (fetchedProduct) {
+                    const imageUrl = `https://featherlites3.s3.amazonaws.com/productImages/${encodeURIComponent(fetchedProduct.ProductCategory)}/${encodeURIComponent(fetchedProduct.SKU)}.jpg`;
+                    setProduct({ ...fetchedProduct, imageUrl });
+                } else {
+                    setError('Product not found');
+                }
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching product:', error);
@@ -35,10 +39,12 @@ const ProductDetailPage = () => {
         <div className="product-detail-page">
             <HeroSection productId={id} />
             <div className="product-info container">
+                <img src={product.imageUrl} alt={product.ColorDescription} className="product-image" />
                 <h1>{product.ColorDescription}</h1>
                 <p className="sku">SKU: {product.SKU}</p>
                 <p className="price">Price: ${product.RetailPrice}</p>
-                <p className="size">Size: {product.ProdutSize}</p>
+                <p className="size">Size: {product.ProductSize}</p>
+                <p className="weight">Weight: {product.Weight}</p>
                 <p className="category">Category: {product.ProductCategory}</p>
                 <div className="details">
                     <h2>Product Details</h2>
